@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f0f9ff;
+    color: #0c4a6e;
+    user-select: none;
+  }
+}
+
+/* Vibrant Palette Custom Utility Classes */
+.card-shadow {
+  box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.08), 0 8px 10px -6px rgba(14, 165, 233, 0.05);
+}
+
+.step-node {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Accessibility font size multipliers */
+.text-scale-normal {
+  font-size: 100%;
+}
+.text-scale-large {
+  font-size: 115%;
+}
+.text-scale-xlarge {
+  font-size: 130%;
+}
+
+/* Custom keyframes for game feedback */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.8);
+  }
+}
+
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 1.5s infinite;
+}
+
+.animate-shake {
+  animation: shakeError 0.4s ease-in-out;
+}
+
+/* Print styles for Certificate diploma */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-certificate, #printable-certificate * {
+    visibility: visible;
+  }
+  #printable-certificate {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: white !important;
+    box-shadow: none !important;
+    border: 8px double #0284c7 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
+
